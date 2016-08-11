@@ -31,8 +31,7 @@ android and ios。
                             
                         }, function (err) {
                             
-                        });
-
+                         });
                 },
                 function (err) {
                 });
@@ -55,14 +54,12 @@ navigator.sobot.open(    {
                         if (data.state == "receiving") {
                             var num = data.num;
                             var message = data.message;
-
                             //popupService.toast(num + ": " + message);
                         }
                         if (data.state == "closed") {
                             //popupService.toast('closed');
                         }
                     }, function () {
-
                     }
                 );
 
