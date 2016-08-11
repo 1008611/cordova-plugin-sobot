@@ -1,10 +1,9 @@
 # cordova-plugin-sobot
 =======
-this is my sobot plugin \<br> 
+this is my sobot plugin  
 
-android and ios \<br> 
+android and ios 
 
-‘有关参数可以根据需求调整。’
 #安装
 cordova plugin add  https://github.com/1008611/cordova-plugin-sobot
 
@@ -70,4 +69,4 @@ navigator.sobot.open(    {
                     }
                 );
 ```
-
+有关参数可以根据需求调整。
