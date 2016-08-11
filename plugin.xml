@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin 
+  xmlns="http://apache.org/cordova/ns/plugins/1.0" 
+  xmlns:android="http://schemas.android.com/apk/res/android" id="cordova-plugin-sobot" version="1.0.0">
+  <name>Sobot</name>
+  <description>智齿客服插件</description>
+  <license>Apache 2.0</license>
+  <keywords>sobot</keywords>
+  <engines>
+    <engine name="cordova" version=">=3.5.0" />
+  </engines>
+  <js-module src="www/sobot.js" name="sobot">
+    <clobbers target="navigator.sobot" />
+  </js-module>
+  <!--ANDROID-->
+  <platform name="android">
+    <resource-file src="src/android/res" target="res" />
+    <source-file src="src/android/Sobot.java" target-dir="src/org/apache/cordova/sobot" />
+    <source-file src="src/android/libs/okhttp-3.2.0.jar" target-dir="libs" />
+    <source-file src="src/android/libs/okio-1.6.0.jar" target-dir="libs" />
+    <source-file src="src/android/libs/sobot_sdk-1.4.1.jar" target-dir="libs" />
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="Sobot">
+        <param name="android-package" value="org.apache.cordova.sobot.Sobot" />
+        <param name="onload" value="true" />
+      </feature>
+    </config-file>
+    <config-file target="AndroidManifest.xml" parent="/*">
+      <uses-permission android:name="android.permission.GET_TASKS" />
+      <uses-permission android:name="android.permission.CAMERA" />
+    </config-file>
+    <config-file target="AndroidManifest.xml" parent="/manifest/application">
+      <supports-screens android:anyDensity="true" android:resizeable="true" android:normalScreens="true" android:smallScreens="true" android:largeScreens="true" android:xlargeScreens="true"/>
+      <activity android:name="com.sobot.chat.activity.SobotChatActivity" android:configChanges="orientation|keyboardHidden" android:launchMode="singleTop" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize" />
+      <activity android:name="com.sobot.chat.activity.SobotPhotoActivity" android:configChanges="orientation|keyboardHidden" android:hardwareAccelerated="false" android:screenOrientation="portrait" />
+      <activity android:name="com.sobot.chat.activity.WebViewActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize" />
+      <activity android:name="com.sobot.chat.activity.DCRCActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Dialog" android:windowSoftInputMode="adjustResize" />
+      <activity android:name="com.sobot.chat.activity.SobotSkillGroupActivity"/>
+      <activity android:name="com.sobot.chat.activity.SobotPostMsgActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize" />
+    </config-file>
+  </platform>
+  <!--IOS-->
+  <platform name="ios">
+    <config-file target="config.xml" parent="/*">
+      <feature name="Sobot">
+        <param name="ios-package" value="CDVSobot" />
+      </feature>
+    </config-file>
+    <!-- build setting header search path $(SRCROOT)/X5 -->
+    <header-file src="src/ios/CDVSobot.h" />
+    <source-file src="src/ios/CDVSobot.m" />
+    <!-- 手动copy framework bundle 文件 -->
+    <resource-file src="src/ios/Sobotkit.bundle" />
+    <!-- afnetworking 依赖security.framework -->
+    <framework src="libz.1.2.5.tbd"/>
+    <framework src="AVFoundation.framework"/>
+    <framework src="AssetsLibrary.framework"/>
+    <framework src="AudioToolbox.framework"/>
+    <framework src="SystemConfiguration.framework"/>
+    <framework src="MobileCoreServices.framework"/>
+    <framework src="ImageIO.framework"/>
+    <framework src="src/ios/Sobotkit.framework" custom="true" />
+  </platform>
+</plugin>
