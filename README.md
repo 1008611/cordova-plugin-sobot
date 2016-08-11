@@ -1,16 +1,19 @@
 # cordova-plugin-sobot
-this is my sobot plugin 。
+=======
+this is my sobot plugin \<br> 
 
-android and ios。
+android and ios \<br> 
 
-有关参数可以根据需求调整。
+‘有关参数可以根据需求调整。’
+#安装
+cordova plugin add  https://github.com/1008611/cordova-plugin-sobot
 
-使用
+#使用
 
- 初始化
+##初始化
 
- 在页面js开始能执行的地方
-
+在页面js开始能执行的地方
+```
   navigator.sobot.init({enterpriseId : "ad33977af6d64f12b9c16bb335039c8c"},
                 //上面是本人的测试账号，自行去官网申请。
                 function () {
@@ -28,16 +31,17 @@ android and ios。
                     };
                     navigator.sobot.ui(uiOptions,
                         function () {
-                            
+
                         }, function (err) {
-                            
-                         });
+
+                        });
+
                 },
                 function (err) {
                 });
-
-调出机器人
-
+```
+##调出机器人
+```
 navigator.sobot.open(    {
                     enterpriseId : "",
                     userId : "",
@@ -53,15 +57,17 @@ navigator.sobot.open(    {
                         }
                         if (data.state == "receiving") {
                             var num = data.num;
+                            
                             var message = data.message;
+
                             //popupService.toast(num + ": " + message);
                         }
                         if (data.state == "closed") {
                             //popupService.toast('closed');
                         }
                     }, function () {
+
                     }
                 );
-
-
+```
 
