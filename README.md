@@ -1,6 +1,8 @@
 # cordova-plugin-sobot
 =======
-this is my sobot plugin  
+this is my sobot plugin
+由于他们官网没有提供cordova插件，项目用到了，就自己封装了下可以正常使用。
+安卓端使用的是sdk为1.41。
 
 android and ios 
 
